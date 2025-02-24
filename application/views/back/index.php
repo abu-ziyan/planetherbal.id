@@ -9,11 +9,11 @@
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-pink hover-zoom-effect">
                         <div class="icon">
-                            <i class="material-icons">email</i>
+                            <i class="material-icons">redeem</i>
                         </div>
                         <div class="content">
-                            <div class="text">MESSAGES</div>
-                            <div class="number">15</div>
+                            <div class="text">KATEGORI PRODUK</div>
+                            <div class="number count-to" data-from="0" data-to="10" data-speed="1000" data-fresh-interval="20">10</div>
                         </div>
                     </div>
 
@@ -21,33 +21,33 @@
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-blue hover-zoom-effect">
                         <div class="icon">
-                            <i class="material-icons">devices</i>
+                            <i class="material-icons">shopping_basket</i>
                         </div>
                         <div class="content">
-                            <div class="text">CPU USAGE</div>
-                            <div class="number">92%</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="info-box bg-light-blue hover-zoom-effect">
-                        <div class="icon">
-                            <i class="material-icons">access_alarm</i>
-                        </div>
-                        <div class="content">
-                            <div class="text">ALARM</div>
-                            <div class="number">07:00 AM</div>
+                            <div class="text">PRODUK</div>
+                            <div class="number count-to" data-from="0" data-to="80" data-speed="1000" data-fresh-interval="20">80</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-cyan hover-zoom-effect">
                         <div class="icon">
-                            <i class="material-icons">gps_fixed</i>
+                            <i class="material-icons">local_library</i>
                         </div>
                         <div class="content">
-                            <div class="text">LOCATION</div>
-                            <div class="number">Turkey</div>
+                            <div class="text">KATEGORI ARTIKEL</div>
+                            <div class="number count-to" data-from="0" data-to="10" data-speed="1000" data-fresh-interval="20">10</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-orange hover-zoom-effect">
+                        <div class="icon">
+                            <i class="material-icons">content_paste</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">ARTIKEL</div>
+                            <div class="number count-to" data-from="0" data-to="15" data-speed="1000" data-fresh-interval="20">15</div>
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                 <!-- Latest Social Trends -->
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="card">
-                        <div class="body bg-cyan">
+                        <div class="body bg-indigo">
                             <div class="m-b--35 font-bold">LATEST SOCIAL TRENDS</div>
                             <ul class="dashboard-stat-list">
                                 <li>
@@ -89,7 +89,7 @@
                 <!-- Answered Tickets -->
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="card">
-                        <div class="body bg-teal">
+                        <div class="body bg-grey">
                             <div class="font-bold m-b--35">ANSWERED TICKETS</div>
                             <ul class="dashboard-stat-list">
                                 <li>

@@ -73,7 +73,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html">Back End Planet Herbal Indonesia</a>
+                <a class="navbar-brand" href="<?= base_url('back/index') ?>">Back End Planet Herbal Indonesia</a>
             </div>
         </div>
     </nav>
@@ -84,7 +84,7 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="images/user.png" width="48" height="48" alt="User" />
+                    <img src="<?= base_url('assets/back/images/user.png') ?>" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
@@ -120,13 +120,13 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="pages/ui/alerts.html">Header</a>
+                                <a href="<?= base_url('back/ubah_header') ?>">Header</a>
                             </li>
                             <li>
-                                <a href="pages/ui/animations.html">Footer</a>
+                                <a href="<?= base_url('back/ubah_footer') ?>">Footer</a>
                             </li>
                             <li>
-                                <a href="pages/ui/badges.html">Keyword</a>
+                                <a href="<?= base_url('back/ubah_keyword') ?>">Keyword</a>
                             </li>
                         </ul>
                     </li>
@@ -138,33 +138,33 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="pages/ui/alerts.html">Section 1 - Banner</a>
+                                <a href="<?= base_url('back/utama_section1') ?>">Section 1 - Banner</a>
                             </li>
                             <li>
-                                <a href="pages/ui/animations.html">Section 2 - Keluhan</a>
+                                <a href="<?= base_url('back/utama_section2') ?>">Section 2 - Keluhan</a>
                             </li>
                             <li>
-                                <a href="pages/ui/badges.html">Section 3 - 6 Produk Terbaik</a>
+                                <a href="<?= base_url('back/utama_section3') ?>">Section 3 - 6 Produk Terbaik</a>
                             </li>
                             <li>
-                                <a href="pages/ui/badges.html">Section 4 - Artikel & Tentang Planet Herbal</a>
+                                <a href="<?= base_url('back/utama_section4') ?>">Section 4 - Artikel & Tentang Planet Herbal</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="pages/typography.html">
+                        <a href="<?= base_url('back/produk') ?>">
                             <i class="material-icons">shopping_basket</i>
                             <span>Produk</span>
                         </a>
                     </li>
                     <li>
-                        <a href="pages/typography.html">
+                        <a href="<?= base_url('back/artikel') ?>">
                             <i class="material-icons">content_paste</i>
                             <span>Artikel</span>
                         </a>
                     </li>
                     <li>
-                        <a href="pages/typography.html">
+                        <a href="<?= base_url('back/tentang_kami') ?>">
                             <i class="material-icons">info_outline</i>
                             <span>Tentang Kami</span>
                         </a>
