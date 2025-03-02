@@ -35,12 +35,12 @@
     <link href="<?= base_url('assets/back/css/themes/all-themes.css') ?>" rel="stylesheet" />
 </head>
 
-<body class="theme-cyan">
+<body class="theme-teal">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
             <div class="preloader">
-                <div class="spinner-layer pl-red">
+                <div class="spinner-layer pl-teal">
                     <div class="circle-clipper left">
                         <div class="circle"></div>
                     </div>
@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </div>
-            <p>Please wait...</p>
+            <p>Silakan Tunggu...</p>
         </div>
     </div>
     <!-- #END# Page Loader -->
@@ -108,11 +108,19 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<?= base_url('back/master_data') ?>">
+                        <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">storage</i>
                             <span>Master Data</span>
                         </a>
-                    </li>                    
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?= base_url('back/kategori_produk1') ?>">Kategori Produk</a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url('back/kategori_artikel1') ?>">Kategori Artikel</a>
+                            </li>
+                        </ul>
+                    </li>                   
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">build</i>
