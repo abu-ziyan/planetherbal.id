@@ -47,7 +47,7 @@
                                                     <i class="material-icons">edit</i>
                                                     <span>Ubah</span>
                                                 </a>
-                                                <a href="<?= base_url('BackController/edit_katart/'.$katart->kd_kategori_artikel) ?>" type="button" class="btn bg-red btn-sm waves-effect">
+                                                <a href="<?= base_url('BackController/hapus_katart/'.$katart->kd_kategori_artikel) ?>" type="button" class="btn bg-red btn-sm waves-effect">
                                                     <i class="material-icons">delete</i>
                                                     <span>Hapus</span>
                                                 </a>

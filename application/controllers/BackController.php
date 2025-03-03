@@ -19,7 +19,6 @@ class BackController extends CI_Controller{
 
         $username = $this->input->post('id_pengguna');
         $password = $this->input->post('sandi_pengguna');
-
        
         $validasi = $this->M_pengguna->validasi_masuk($username, $password)->num_rows();
         if($validasi > 0) {
@@ -111,6 +110,37 @@ class BackController extends CI_Controller{
 		}else{
 			echo "Gagal";
 		}
+	}
+
+	public function edit_katart($katart){
+		$data['kategori_artikel'] = $this->M_kategori_artikel->getDataWhere($katart)->row();
+        $this->load->view('back/template/header', $data);
+        $this->load->view('back/kategori_artikel3', $data);
+        $this->load->view('back/template/footer', $data);
+	}
+
+    public function ubah_katart(){
+		$data = array(
+			'kd_kategori_artikel' => $this->input->post('kd_kategori_artikel'),
+			'nm_kategori_artikel' => $this->input->post('nm_kategori_artikel')
+		);
+
+		$katart = $this->input->post('kd_kategori_artikel');
+		$update = $this->M_kategori_artikel->ubah_ka($katart, $data);
+
+		if($update){
+			$this->session->set_flashdata('pesan', 'Data berhasil diubah!');
+			redirect('back/kategori_artikel1');
+		}else{
+			echo "Gagal";
+		}
+	}
+    
+    public function hapus_katart($katart){
+		$this->db->where('kd_kategori_artikel',$katart);
+		$this->db->delete('kategori_artikel');
+
+		redirect('back/kategori_artikel1');
 	}
 
 }
