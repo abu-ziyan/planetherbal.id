@@ -126,7 +126,7 @@ class BackController extends CI_Controller{
 		);
 
 		$katart = $this->input->post('kd_kategori_artikel');
-		$update = $this->M_kategori_artikel->ubah_ka($katart, $data);
+		$update = $this->M_kategori_artikel->ubah_kar($katart, $data);
 
 		if($update){
 			$this->session->set_flashdata('pesan', 'Data berhasil diubah!');

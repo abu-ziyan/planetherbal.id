@@ -136,6 +136,9 @@
                             <li>
                                 <a href="<?= base_url('back/ubah_keyword') ?>">Keyword</a>
                             </li>
+							<li>
+                                <a href="<?= base_url('back/ubah_banner') ?>">Banner</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="header">Bagian Modifikasi Website</li>
