@@ -18,4 +18,9 @@ class M_kategori_produk extends CI_Model{
         $this->db->where('kd_kategori_produk', $katpro);
         return $this->db->update('kategori_produk', $data);
     }
+
+	public function hapus_kp($katpro){
+		$this->db->where('kd_kategori_produk',$katpro);
+		return $this->db->delete('kategori_produk');
+	}
 }

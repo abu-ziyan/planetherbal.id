@@ -47,10 +47,10 @@
                                                     <i class="material-icons">edit</i>
                                                     <span>Ubah</span>
                                                 </a>
-                                                <a href="<?= base_url('BackController/hapus_katpro/'.$katpro->kd_kategori_produk) ?>" type="button" class="btn bg-red btn-sm waves-effect">
-                                                    <i class="material-icons">delete</i>
-                                                    <span>Hapus</span>
-                                                </a>
+                                                <button type="button" class="btn bg-red btn-sm waves-effect" data-toggle="modal" data-target="#hapus">
+													<i class="material-icons">delete</i>
+													<span>Hapus</span>
+												</button>
                                             </td>
                                         </tr>
                                         <?php endforeach; ?>                                        
@@ -64,3 +64,26 @@
             <!-- #END# Basic Examples -->
         </div>
     </section>
+
+	<div class="modal fade" id="hapus" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+				<div class="modal-header bg-red">
+					<h4 class="modal-title" id="smallModalLabel">Penghapusan Data</h4>
+				</div>
+				<div class="modal-body">
+					Yakin data <?= $katpro->nm_kategori_produk ?> akan dihapus?
+				</div>
+				<div class="modal-footer">                            
+					<button type="button" class="btn bg-teal btn-sm waves-effect" data-dismiss="modal">
+						<i class="material-icons">clear</i>
+						<span>Tidak</span>
+					</button>
+					<a href="<?= base_url('BackController/hapus_katpro/'.$katpro->kd_kategori_produk) ?>" type="button" class="btn bg-red btn-sm waves-effect">
+						<i class="material-icons">delete</i>
+						<span>Hapus</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>

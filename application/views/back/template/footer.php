@@ -38,6 +38,7 @@
     <script src="<?= base_url('assets/back/js/admin.js') ?>"></script>
     <script src="<?= base_url('assets/back/js/pages/tables/jquery-datatable.js') ?>"></script>    
     <script src="<?= base_url('assets/back/js/pages/widgets/infobox/infobox-2.js') ?>"></script>
+	<script src="<?= base_url('assets/back/js/pages/ui/modals.js') ?>"></script>
 
     <!-- Demo Js -->
     <script src="<?= base_url('assets/back/js/demo.js') ?>"></script>

@@ -90,10 +90,14 @@ class BackController extends CI_Controller{
 	}
     
     public function hapus_katpro($katpro){
-		$this->db->where('kd_kategori_produk',$katpro);
-		$this->db->delete('kategori_produk');
+		$delete = $this->M_kategori_produk->hapus_kp($katpro);
 
-		redirect('back/kategori_produk1');
+		if($delete){
+			$this->session->set_flashdata('pesan', 'Data berhasil dihapus!');
+			redirect('back/kategori_produk1');
+		}else{
+			echo "Gagal";
+		}
 	}
 
     public function input_katart(){
@@ -137,10 +141,14 @@ class BackController extends CI_Controller{
 	}
     
     public function hapus_katart($katart){
-		$this->db->where('kd_kategori_artikel',$katart);
-		$this->db->delete('kategori_artikel');
+		$delete = $this->M_kategori_artikel->hapus_ka($katart);
 
-		redirect('back/kategori_artikel1');
+		if($delete){
+			$this->session->set_flashdata('pesan', 'Data berhasil dihapus!');
+			redirect('back/kategori_artikel1');
+		}else{
+			echo "Gagal";
+		}
 	}
 
 }

@@ -18,4 +18,9 @@ class M_kategori_artikel extends CI_Model{
         $this->db->where('kd_kategori_artikel', $katart);
         return $this->db->update('kategori_artikel', $data);
     }
+
+	public function hapus_ka($katart){
+		$this->db->where('kd_kategori_artikel',$katart);
+		return $this->db->delete('kategori_artikel');
+	}
 }
