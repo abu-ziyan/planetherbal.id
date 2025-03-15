@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2025 at 09:42 AM
+-- Generation Time: Mar 15, 2025 at 10:06 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,15 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `kategori_artikel` (
   `kd_kategori_artikel` varchar(255) NOT NULL,
-  `nm_kategori_artikel` varchar(255) NOT NULL
+  `nm_kategori_artikel` varchar(255) NOT NULL,
+  `gmb_kategori_artikel` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `kategori_artikel`
---
-
-INSERT INTO `kategori_artikel` (`kd_kategori_artikel`, `nm_kategori_artikel`) VALUES
-('KD_ART_0001', 'Kode Artikel Pertama');
 
 -- --------------------------------------------------------
 
@@ -47,15 +41,9 @@ INSERT INTO `kategori_artikel` (`kd_kategori_artikel`, `nm_kategori_artikel`) VA
 
 CREATE TABLE `kategori_produk` (
   `kd_kategori_produk` varchar(255) NOT NULL,
-  `nm_kategori_produk` varchar(255) NOT NULL
+  `nm_kategori_produk` varchar(255) NOT NULL,
+  `gmb_kategori_produk` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `kategori_produk`
---
-
-INSERT INTO `kategori_produk` (`kd_kategori_produk`, `nm_kategori_produk`) VALUES
-('KD_PRD_0001', 'Kode Produk Pertama');
 
 -- --------------------------------------------------------
 

@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
-                                        <a href="<?= base_url('back/master_data') ?>" type="button" class="btn bg-red btn-sm waves-effect">
+                                        <a href="<?= base_url('back/kategori_artikel1') ?>" type="button" class="btn bg-red btn-sm waves-effect">
                                             <i class="material-icons">arrow_back</i>
                                             <span>Kembali</span>
                                         </a>
