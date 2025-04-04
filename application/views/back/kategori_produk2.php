@@ -10,8 +10,8 @@
                                 Tambah Kategori Produk
                             </h2>
                         </div>
-                        <div class="body">
-                            <form class="form-horizontal" action="<?= base_url('BackController/input_katpro') ?>" method="post">
+                        <div class="body">                            
+                            <?php echo form_open_multipart('BackController/input_katpro');?>
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                         <label for="email_address_2">Kode Kategori Produk</label>
@@ -19,7 +19,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" name="kd_kategori_produk" class="form-control" placeholder="Masukkan Kode Kategori Produk" required>
+                                                <input type="text" name="kd_kategori_produk" class="form-control" placeholder="Masukkan Kode Kategori Produk" required="">
                                             </div>
                                         </div>
                                     </div>
@@ -31,7 +31,19 @@
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" name="nm_kategori_produk" class="form-control" placeholder="Masukkan Nama Kategori Produk" required>
+                                                <input type="text" name="nm_kategori_produk" class="form-control" placeholder="Masukkan Nama Kategori Produk" required="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2">Gambar Kategori Produk</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="file" name="gambar_kategori_produk" class="form-control" placeholder="Masukkan Gambar Kategori Produk" required="">
                                             </div>
                                         </div>
                                     </div>
@@ -42,13 +54,13 @@
                                             <i class="material-icons">arrow_back</i>
                                             <span>Kembali</span>
                                         </a>
-                                        <button type="submit" class="btn bg-blue btn-sm waves-effect">
+                                        <button type="submit" class="btn bg-blue btn-sm waves-effect" value="upload">
                                             <i class="material-icons">save</i>
                                             <span>Simpan</span>
                                         </button>
                                     </div>
                                 </div>
-                            </form>
+                            <?php echo form_close();?>                            
                         </div>
                     </div>
                 </div>

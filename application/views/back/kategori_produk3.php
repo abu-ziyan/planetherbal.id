@@ -11,7 +11,7 @@
                             </h2>
                         </div>
                         <div class="body">
-                            <form class="form-horizontal" action="<?= base_url('BackController/ubah_katpro') ?>" method="post">
+                            <?php echo form_open_multipart('BackController/input_katpro');?>
                                 <div class="row clearfix">
                                 <input type="hidden" name='kd_kategori_produk' value='<?= $kategori_produk->kd_kategori_produk ?>'>
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
@@ -38,6 +38,30 @@
                                     </div>
                                 </div>
                                 <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2">Tampilan Gambar Kategori Produk</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                            <img style="width: 200px" src="<?= base_url($kategori_produk->gambar_kategori_produk) ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2">Gambar Kategori Produk</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="file" name="gambar_kategori_produk" accept="image/*" class="form-control" placeholder="Masukkan Gambar Kategori Produk" required="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
                                     <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
                                         <a href="<?= base_url('back/kategori_produk1') ?>" type="button" class="btn bg-red btn-sm waves-effect">
                                             <i class="material-icons">arrow_back</i>
@@ -49,7 +73,7 @@
                                         </button>
                                     </div>
                                 </div>
-                            </form>
+                            <?php echo form_close();?>
                         </div>
                     </div>
                 </div>

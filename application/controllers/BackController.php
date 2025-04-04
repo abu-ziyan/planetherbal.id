@@ -50,9 +50,18 @@ class BackController extends CI_Controller{
     }
 
     public function input_katpro(){
+		$kd_kategori_produk = $this->input->post('kd_kategori_produk');
+		$nm_kategori_produk = $this->input->post('nm_kategori_produk');
+		$gambar_kategori_produk = $_FILES['gambar_kategori_produk']['tmp_name'];
+
+		$path = 'assets/images/';
+		$imagePath = $path. $nm_kategori_produk . "_katpro.png";
+		move_uploaded_file($gambar_kategori_produk, $imagePath);
+
 		$data = array(
-			'kd_kategori_produk' => $this->input->post('kd_kategori_produk'),
-			'nm_kategori_produk' => $this->input->post('nm_kategori_produk')
+			'kd_kategori_produk' => $kd_kategori_produk,
+			'nm_kategori_produk' => $nm_kategori_produk,
+			'gambar_kategori_produk' => $imagePath
 		);
 
 		$input = $this->M_kategori_produk->input_kp($data);
@@ -62,7 +71,7 @@ class BackController extends CI_Controller{
 			redirect('back/kategori_produk1');
 		}else{
 			echo "Gagal";
-		}
+		}		
 	}
 
     public function edit_katpro($katpro){
@@ -73,9 +82,18 @@ class BackController extends CI_Controller{
 	}
 
     public function ubah_katpro(){
+		$kd_kategori_produk = $this->input->post('kd_kategori_produk');
+		$nm_kategori_produk = $this->input->post('nm_kategori_produk');
+		$gambar_kategori_produk = $_FILES['gambar_kategori_produk']['tmp_name'];
+
+		$path = 'assets/images/';
+		$imagePath = $path. $nm_kategori_produk . "_katpro.png";
+		move_uploaded_file($gambar_kategori_produk, $imagePath);
+
 		$data = array(
-			'kd_kategori_produk' => $this->input->post('kd_kategori_produk'),
-			'nm_kategori_produk' => $this->input->post('nm_kategori_produk')
+			'kd_kategori_produk' => $kd_kategori_produk,
+			'nm_kategori_produk' => $nm_kategori_produk,
+			'gambar_kategori_produk' => $imagePath
 		);
 
 		$katpro = $this->input->post('kd_kategori_produk');

@@ -38,6 +38,30 @@
                                     </div>
                                 </div>
                                 <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2">Tampilan Gambar Kategori Artikel</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                            <img style="width: 75px;" src="<?= base_url($kategori_artikel->gambar_kategori_artikel) ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2">Gambar Kategori Produk</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="file" name="gambar_kategori_produk" accept="image/*" class="form-control" placeholder="Masukkan Gambar Kategori Produk" required="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
                                     <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
                                         <a href="<?= base_url('back/kategori_artikel1') ?>" type="button" class="btn bg-red btn-sm waves-effect">
                                             <i class="material-icons">arrow_back</i>
