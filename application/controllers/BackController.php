@@ -50,28 +50,31 @@ class BackController extends CI_Controller{
     }
 
     public function input_katpro(){
-		$kd_kategori_produk = $this->input->post('kd_kategori_produk');
-		$nm_kategori_produk = $this->input->post('nm_kategori_produk');
-		$gambar_kategori_produk = $_FILES['gambar_kategori_produk']['tmp_name'];
+		$config['upload_path']		= './assets/images';
+		$config['allowed_types']	= 'jpg|jpeg|png';
+		$config['file_name']		= 'katpro-'.date('ymd').'-'.substr(md5(rand()),0,10);
+		$this->load->library('upload', $config);
 
-		$path = 'assets/images/';
-		$imagePath = $path. $nm_kategori_produk . "_katpro.png";
-		move_uploaded_file($gambar_kategori_produk, $imagePath);
-
-		$data = array(
-			'kd_kategori_produk' => $kd_kategori_produk,
-			'nm_kategori_produk' => $nm_kategori_produk,
-			'gambar_kategori_produk' => $imagePath
-		);
-
-		$input = $this->M_kategori_produk->input_kp($data);
-
-		if($input){
-            $this->session->set_flashdata('pesan', 'Data berhasil dimasukkan!');
-			redirect('back/kategori_produk1');
+		if(@$_FILES['gambar_kategori_produk']['name'] != null) {
+			if($this->upload->do_upload('gambar_kategori_produk')) {
+				$post['gambar_kategori_produk'] = $this->upload->data('file_name');
+				$this->M_kategori_produk->input_kp($post);
+				if($this->db->affected_rows() > 0) {
+					$this->session->set_flashdata('pesan', 'Data berhasil dimasukkan!');
+					redirect('back/kategori_produk1');
+				}
+			}else{
+				$this->session->set_flashdata('pesan', 'Data gagal dimasukkan!');
+				redirect('back/kategori_produk1');
+			}
 		}else{
-			echo "Gagal";
-		}		
+			$post['gambar_kategori_produk'] = null;
+			$this->M_kategori_produk->input_kp($post);
+			if($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('pesan', 'Data berhasil dimasukkan!');
+				redirect('back/kategori_produk1');
+			}
+		}
 	}
 
     public function edit_katpro($katpro){
@@ -82,31 +85,39 @@ class BackController extends CI_Controller{
 	}
 
     public function ubah_katpro(){
-		$kd_kategori_produk = $this->input->post('kd_kategori_produk');
-		$nm_kategori_produk = $this->input->post('nm_kategori_produk');
-		$gambar_kategori_produk = $_FILES['gambar_kategori_produk']['tmp_name'];
+		$config['upload_path']		= './assets/images';
+		$config['allowed_types']	= 'jpg|jpeg|png';
+		$config['file_name']		= 'katpro-'.date('ymd').'-'.substr(md5(rand()),0,10);
+		$this->load->library('upload', $config);
 
-		$path = 'assets/images/';
-		$imagePath = $path. $nm_kategori_produk . "_katpro.png";
-		move_uploaded_file($gambar_kategori_produk, $imagePath);
+		if(@$_FILES['gambar_kategori_produk']['name'] != null) {
+			if($this->upload->do_upload('gambar_kategori_produk')) {
 
-		$data = array(
-			'kd_kategori_produk' => $kd_kategori_produk,
-			'nm_kategori_produk' => $nm_kategori_produk,
-			'gambar_kategori_produk' => $imagePath
-		);
-
-		$katpro = $this->input->post('kd_kategori_produk');
-		$update = $this->M_kategori_produk->ubah_kp($katpro, $data);
-
-		if($update){
-			$this->session->set_flashdata('pesan', 'Data berhasil diubah!');
-			redirect('back/kategori_produk1');
+				$kode = $this->M_kategori_produk->get($this->input->post('kd_kategori_produk'))->row();
+				if($kode->gambar_kategori_produk != null) {
+					$target_file = './assets/produk/'.$kode->gambar_kategori_produk;
+					unlink($target_file);
+				}
+				$post['gambar_kategori_produk'] = $this->upload->data('file_name');
+				$this->M_kategori_produk->ubah_kp($post);
+				if($this->db->affected_rows() > 0) {
+					$this->session->set_flashdata('pesan', 'Data berhasil dubah!');
+					redirect('back/kategori_produk1');
+				}
+			}else{
+				$this->session->set_flashdata('pesan', 'Data gagal dimasukkan!');
+				redirect('back/kategori_produk1');
+			}
 		}else{
-			echo "Gagal";
+			$post['gambar_kategori_produk'] = null;
+			$this->M_kategori_produk->ubah_kp($post);
+			if($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('pesan', 'Data berhasil diubah!');
+				redirect('back/kategori_produk1');
+			}
 		}
 	}
-    
+
     public function hapus_katpro($katpro){
 		$delete = $this->M_kategori_produk->hapus_kp($katpro);
 
@@ -157,7 +168,7 @@ class BackController extends CI_Controller{
 			echo "Gagal";
 		}
 	}
-    
+
     public function hapus_katart($katart){
 		$delete = $this->M_kategori_artikel->hapus_ka($katart);
 

@@ -44,7 +44,7 @@
                                         <tr>
                                             <td><?= $no++ ?></td>
                                             <td><?= $katpro->nm_kategori_produk ?></td>
-                                            <td><img style="width: 75px;" src="<?= base_url($katpro->gambar_kategori_produk) ?>"></td>
+                                            <td><img style="width: 75px;" src="<?= base_url('assets/images/'.$katpro->gambar_kategori_produk) ?>"></td>
                                             <td>
                                                 <a href="<?= base_url('BackController/edit_katpro/'.$katpro->kd_kategori_produk) ?>" type="button" class="btn bg-amber btn-sm waves-effect">
                                                     <i class="material-icons">edit</i>

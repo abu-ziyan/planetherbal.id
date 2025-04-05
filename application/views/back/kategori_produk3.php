@@ -11,7 +11,7 @@
                             </h2>
                         </div>
                         <div class="body">
-                            <?php echo form_open_multipart('BackController/input_katpro');?>
+                            <?php echo form_open_multipart('BackController/ubah_katpro');?>
                                 <div class="row clearfix">
                                 <input type="hidden" name='kd_kategori_produk' value='<?= $kategori_produk->kd_kategori_produk ?>'>
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
@@ -43,8 +43,8 @@
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
-                                            <div class="form-line">
-                                            <img style="width: 200px" src="<?= base_url($kategori_produk->gambar_kategori_produk) ?>">
+                                            <div>
+                                            <img style="width: 200px" src="<?= base_url('assets/images/'.$kategori_produk->gambar_kategori_produk) ?>">
                                             </div>
                                         </div>
                                     </div>
