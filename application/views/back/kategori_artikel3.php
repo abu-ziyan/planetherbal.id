@@ -11,7 +11,7 @@
                             </h2>
                         </div>
                         <div class="body">
-                            <form class="form-horizontal" action="<?= base_url('BackController/ubah_katart') ?>" method="post">
+                            <?php echo form_open_multipart('BackController/ubah_katart');?>
                                 <div class="row clearfix">
                                 <input type="hidden" name='kd_kategori_artikel' value='<?= $kategori_artikel->kd_kategori_artikel ?>'>
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
@@ -51,12 +51,24 @@
                                 </div>
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="email_address_2">Gambar Kategori Produk</label>
+                                        <label for="email_address_2">Tampilan Gambar Kategori Artikel</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="form-group">
+                                            <div>
+                                            <img style="width: 200px" src="<?= base_url('assets/images/kategori/'.$kategori_artikel->gambar_kategori_artikel) ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="email_address_2">Gambar Kategori Artikel</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="file" name="gambar_kategori_produk" accept="image/*" class="form-control" placeholder="Masukkan Gambar Kategori Produk" required="">
+                                                <input type="file" name="gambar_kategori_artikel" accept="image/*" class="form-control" placeholder="Masukkan Gambar Kategori artikel">
                                             </div>
                                         </div>
                                     </div>
@@ -73,7 +85,7 @@
                                         </button>
                                     </div>
                                 </div>
-                            </form>
+                            <?php echo form_close();?>
                         </div>
                     </div>
                 </div>

@@ -50,7 +50,7 @@ class BackController extends CI_Controller{
     }
 
     public function input_katpro(){
-		$config['upload_path']		= './assets/images';
+		$config['upload_path']		= './assets/images/kategori/';
 		$config['allowed_types']	= 'jpg|jpeg|png';
 		$config['file_name']		= 'katpro-'.date('ymd').'-'.substr(md5(rand()),0,10);
 		$this->load->library('upload', $config);
@@ -85,19 +85,13 @@ class BackController extends CI_Controller{
 	}
 
     public function ubah_katpro(){
-		$config['upload_path']		= './assets/images';
+		$config['upload_path']		= './assets/images/kategori/';
 		$config['allowed_types']	= 'jpg|jpeg|png';
 		$config['file_name']		= 'katpro-'.date('ymd').'-'.substr(md5(rand()),0,10);
 		$this->load->library('upload', $config);
 
 		if(@$_FILES['gambar_kategori_produk']['name'] != null) {
 			if($this->upload->do_upload('gambar_kategori_produk')) {
-
-				$kode = $this->M_kategori_produk->get($this->input->post('kd_kategori_produk'))->row();
-				if($kode->gambar_kategori_produk != null) {
-					$target_file = './assets/produk/'.$kode->gambar_kategori_produk;
-					unlink($target_file);
-				}
 				$post['gambar_kategori_produk'] = $this->upload->data('file_name');
 				$this->M_kategori_produk->ubah_kp($post);
 				if($this->db->affected_rows() > 0) {
@@ -130,18 +124,30 @@ class BackController extends CI_Controller{
 	}
 
     public function input_katart(){
-		$data = array(
-			'kd_kategori_artikel' => $this->input->post('kd_kategori_artikel'),
-			'nm_kategori_artikel' => $this->input->post('nm_kategori_artikel')
-		);
+		$config['upload_path']		= './assets/images/kategori/';
+		$config['allowed_types']	= 'jpg|jpeg|png';
+		$config['file_name']		= 'katart-'.date('ymd').'-'.substr(md5(rand()),0,10);
+		$this->load->library('upload', $config);
 
-		$input = $this->M_kategori_artikel->input_ka($data);
-
-		if($input){
-            $this->session->set_flashdata('pesan', 'Data berhasil dimasukkan!');
-			redirect('back/kategori_artikel1');
+		if(@$_FILES['gambar_kategori_artikel']['name'] != null) {
+			if($this->upload->do_upload('gambar_kategori_artikel')) {
+				$post['gambar_kategori_artikel'] = $this->upload->data('file_name');
+				$this->M_kategori_artikel->input_ka($post);
+				if($this->db->affected_rows() > 0) {
+					$this->session->set_flashdata('pesan', 'Data berhasil dimasukkan!');
+					redirect('back/kategori_artikel1');
+				}
+			}else{
+				$this->session->set_flashdata('pesan', 'Data gagal dimasukkan!');
+				redirect('back/kategori_artikel1');
+			}
 		}else{
-			echo "Gagal";
+			$post['gambar_kategori_artikel'] = null;
+			$this->M_kategori_artikel->input_ka($post);
+			if($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('pesan', 'Data berhasil dimasukkan!');
+				redirect('back/kategori_artikel1');
+			}
 		}
 	}
 
@@ -153,19 +159,30 @@ class BackController extends CI_Controller{
 	}
 
     public function ubah_katart(){
-		$data = array(
-			'kd_kategori_artikel' => $this->input->post('kd_kategori_artikel'),
-			'nm_kategori_artikel' => $this->input->post('nm_kategori_artikel')
-		);
+		$config['upload_path']		= './assets/images/kategori/';
+		$config['allowed_types']	= 'jpg|jpeg|png';
+		$config['file_name']		= 'katart-'.date('ymd').'-'.substr(md5(rand()),0,10);
+		$this->load->library('upload', $config);
 
-		$katart = $this->input->post('kd_kategori_artikel');
-		$update = $this->M_kategori_artikel->ubah_kar($katart, $data);
-
-		if($update){
-			$this->session->set_flashdata('pesan', 'Data berhasil diubah!');
-			redirect('back/kategori_artikel1');
+		if(@$_FILES['gambar_kategori_artikel']['name'] != null) {
+			if($this->upload->do_upload('gambar_kategori_artikel')) {
+				$post['gambar_kategori_artikel'] = $this->upload->data('file_name');
+				$this->M_kategori_artikel->ubah_ka($post);
+				if($this->db->affected_rows() > 0) {
+					$this->session->set_flashdata('pesan', 'Data berhasil dubah!');
+					redirect('back/kategori_artikel1');
+				}
+			}else{
+				$this->session->set_flashdata('pesan', 'Data gagal dimasukkan!');
+				redirect('back/kategori_artikel1');
+			}
 		}else{
-			echo "Gagal";
+			$post['gambar_kategori_artikel'] = null;
+			$this->M_kategori_artikel->ubah_ka($post);
+			if($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('pesan', 'Data berhasil diubah!');
+				redirect('back/kategori_artikel1');
+			}
 		}
 	}
 

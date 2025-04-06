@@ -56,7 +56,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="file" name="gambar_kategori_produk" accept="image/*" class="form-control" placeholder="Masukkan Gambar Kategori Produk" required="">
+                                                <input type="file" name="gambar_kategori_produk" accept="image/*" class="form-control" placeholder="Masukkan Gambar Kategori Produk">
                                             </div>
                                         </div>
                                     </div>
