@@ -16,6 +16,15 @@
     <!-- Bootstrap Core Css -->
     <link href="<?= base_url('assets/back/plugins/bootstrap/css/bootstrap.css') ?>" rel="stylesheet">
 
+    <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="<?= base_url('assets/back/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css') ?>" rel="stylesheet" />
+
+    <!-- Wait Me Css -->
+    <link href="<?= base_url('assets/back/plugins/waitme/waitMe.css') ?>" rel="stylesheet" />
+
+    <!-- Bootstrap Select Css -->
+    <link href="<?= base_url('assets/back/plugins/bootstrap-select/css/bootstrap-select.css') ?>" rel="stylesheet" />
+
     <!-- Waves Effect Css -->
     <link href="<?= base_url('assets/back/plugins/node-waves/waves.css') ?>" rel="stylesheet" />
 
@@ -163,13 +172,13 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="<?= base_url('back/produk') ?>">
+                        <a href="<?= base_url('back/produk1') ?>">
                             <i class="material-icons">shopping_basket</i>
                             <span>Produk</span>
                         </a>
                     </li>
                     <li>
-                        <a href="<?= base_url('back/artikel') ?>">
+                        <a href="<?= base_url('back/artikel1') ?>">
                             <i class="material-icons">content_paste</i>
                             <span>Artikel</span>
                         </a>

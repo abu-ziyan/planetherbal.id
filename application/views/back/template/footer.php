@@ -16,9 +16,18 @@
     <!-- Jquery CountTo Plugin Js -->
     <script src="<?= base_url('assets/back/plugins/jquery-countto/jquery.countTo.js') ?>"></script>
 
+    <!-- Select Plugin Js -->
+    <script src="<?= base_url('assets/back/plugins/bootstrap-select/js/bootstrap-select.js') ?>"></script>
+
+    <!-- Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="<?= base_url('assets/back/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js') ?>"></script>
+
     <!-- Morris Plugin Js -->
     <script src="<?= base_url('assets/back/plugins/raphael/raphael.min.js') ?>"></script>
     <script src="<?= base_url('assets/back/plugins/morrisjs/morris.js') ?>"></script>
+
+    <!-- Ckeditor -->
+    <script src="<?= base_url('assets/back/plugins/ckeditor/ckeditor.js') ?>"></script>
 
     <!-- Sparkline Chart Plugin Js -->
     <script src="<?= base_url('assets/back/plugins/jquery-sparkline/jquery.sparkline.js') ?>"></script>
@@ -39,6 +48,8 @@
     <script src="<?= base_url('assets/back/js/pages/tables/jquery-datatable.js') ?>"></script>    
     <script src="<?= base_url('assets/back/js/pages/widgets/infobox/infobox-2.js') ?>"></script>
 	<script src="<?= base_url('assets/back/js/pages/ui/modals.js') ?>"></script>
+    <script src="<?= base_url('assets/back/js/pages/forms/editors.js') ?>"></script>
+    <script src="<?= base_url('assets/back/js/pages/forms/basic-form-elements.js') ?>"></script>
 
     <!-- Demo Js -->
     <script src="<?= base_url('assets/back/js/demo.js') ?>"></script>
