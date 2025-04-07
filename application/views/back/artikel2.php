@@ -44,7 +44,7 @@
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <select class="form-control show-tick">
-                                                    <option value="">-- Pilih Kategori --</option>
+                                                    <option value="">-- Pilih Kategori Artikel --</option>
                                                     <option value="10">10</option>
                                                     <option value="20">20</option>
                                                     <option value="30">30</option>
