@@ -12,18 +12,7 @@
                         </div>
                         <div class="body">
                             <?php echo form_open_multipart('BackController/input_katart');?>
-                                <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="email_address_2">Kode Kategori Artikel</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <input type="text" name="kd_kategori_artikel" class="form-control" placeholder="Masukkan Kode Kategori Artikel" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                         <label for="email_address_2">Nama Kategori Artikel</label>

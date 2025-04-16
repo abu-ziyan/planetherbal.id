@@ -26,7 +26,8 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Kategori Artikel</th>
+											<th>Kode</th>
+                                            <th>Kategori</th>
                                             <th>Gambar</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -34,6 +35,7 @@
                                     <tfoot>
                                     <tr>
                                             <th>No</th>
+											<th>Kode</th>
                                             <th>Kategori Artikel</th>
                                             <th>Gambar</th>
                                             <th>Aksi</th>
@@ -43,8 +45,9 @@
                                         <?php $no = 1; foreach ($kategori_artikel as $katart): ?>
                                         <tr>
                                             <td><?= $no++ ?></td>
+											<td><?= $katart->kd_kategori_artikel ?></td>
                                             <td><?= $katart->nm_kategori_artikel ?></td>
-                                            <td><img style="width: 75px;" src="<?= base_url('assets/images/kategori/'.$katart->gambar_kategori_artikel) ?>"></td>
+                                            <td><img style="width: 75px; heigh: 75px;" src="<?= base_url('assets/images/kategori/'.$katart->gambar_kategori_artikel) ?>"></td>
                                             <td>
                                                 <a href="<?= base_url('BackController/edit_katart/'.$katart->kd_kategori_artikel) ?>" type="button" class="btn bg-amber btn-sm waves-effect">
                                                     <i class="material-icons">edit</i>

@@ -6,8 +6,10 @@ class M_kategori_produk extends CI_Model{
     }
 
     public function input_kp(){
+		$kode_unik = 'kdpro-'.date('ymd').'-'.substr(md5(rand()),0,10);
+
         $params = array(
-			'kd_kategori_produk' => $this->input->post('kd_kategori_produk'),
+			'kd_kategori_produk' => $kode_unik,
 			'nm_kategori_produk' => $this->input->post('nm_kategori_produk'),
 			'gambar_kategori_produk' => $this->upload->data('file_name')
 		);

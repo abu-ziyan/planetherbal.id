@@ -26,7 +26,8 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Kategori Produk</th>
+											<th>Kode</th>
+                                            <th>Kategori</th>
                                             <th>Gambar</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -34,7 +35,8 @@
                                     <tfoot>
                                     <tr>
                                             <th>No</th>
-                                            <th>Kategori Produk</th>
+											<th>Kode</th>
+                                            <th>Kategori</th>
                                             <th>Gambar</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -43,6 +45,7 @@
                                         <?php $no = 1; foreach ($kategori_produk as $katpro): ?>
                                         <tr>
                                             <td><?= $no++ ?></td>
+											<td><?= $katpro->kd_kategori_produk ?></td>
                                             <td><?= $katpro->nm_kategori_produk ?></td>
                                             <td><img style="width: 75px;" src="<?= base_url('assets/images/kategori/'.$katpro->gambar_kategori_produk) ?>"></td>
                                             <td>

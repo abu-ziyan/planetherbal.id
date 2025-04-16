@@ -6,8 +6,10 @@ class M_kategori_artikel extends CI_Model{
     }
 
     public function input_ka(){
+		$kode_unik = 'kdart-'.date('ymd').'-'.substr(md5(rand()),0,10);
+
         $params = array(
-			'kd_kategori_artikel' => $this->input->post('kd_kategori_artikel'),
+			'kd_kategori_artikel' => $kode_unik,
 			'nm_kategori_artikel' => $this->input->post('nm_kategori_artikel'),
 			'gambar_kategori_artikel' => $this->upload->data('file_name')
 		);
