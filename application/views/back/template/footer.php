@@ -16,6 +16,9 @@
     <!-- Jquery CountTo Plugin Js -->
     <script src="<?= base_url('assets/back/plugins/jquery-countto/jquery.countTo.js') ?>"></script>
 
+    <!-- Autosize Plugin Js -->
+    <script src="<?= base_url('assets/back/plugins/autosize/autosize.js') ?>"></script>
+
     <!-- Select Plugin Js -->
     <script src="<?= base_url('assets/back/plugins/bootstrap-select/js/bootstrap-select.js') ?>"></script>
 

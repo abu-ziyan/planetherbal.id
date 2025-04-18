@@ -5,6 +5,11 @@ class M_kategori_artikel extends CI_Model{
         return $this->db->get('kategori_artikel');
     }
 
+	public function tarikData() {
+		$query = $this->db->query("SELECT * FROM kategori_artikel ORDER BY nm_kategori_artikel ASC");
+		return $query->result();
+	}
+
     public function input_ka(){
 		$kode_unik = 'kdart-'.date('ymd').'-'.substr(md5(rand()),0,10);
 

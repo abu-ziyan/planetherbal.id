@@ -44,7 +44,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div>
-                                            <img style="width: 200px" src="<?= base_url('assets/images/'.$kategori_produk->gambar_kategori_produk) ?>">
+                                            <img style="width: 200px" name="nampil" src="<?= base_url('assets/images/kategori/'.$kategori_produk->gambar_kategori_produk) ?>">
                                             </div>
                                         </div>
                                     </div>

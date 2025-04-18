@@ -5,6 +5,8 @@ class BackController extends CI_Controller{
         parent::__construct();
         $this->load->model('M_kategori_produk');
         $this->load->model('M_kategori_artikel');
+		$this->load->model('M_artikel');
+		$this->load->model('M_produk');
     }
     
     public function masuk() {
@@ -43,8 +45,12 @@ class BackController extends CI_Controller{
         $data['title'] = "Halaman ".$title;
         $data['kategori_produk'] = $this->M_kategori_produk->ambil()->result();
         $data['kategori_artikel'] = $this->M_kategori_artikel->ambil()->result();
-
-        $this->load->view('back/template/header', $data);
+		$data['artikel'] = $this->M_artikel->ambil()->result();
+		$data['produk'] = $this->M_produk->ambil()->result();
+		$data['kategori_artikel'] = $this->M_kategori_artikel->tarikData();
+		$data['kategori_produk'] = $this->M_kategori_produk->tarikData();
+		
+		$this->load->view('back/template/header', $data);
         $this->load->view('back/'.$page, $data);
         $this->load->view('back/template/footer', $data);
     }
@@ -99,7 +105,7 @@ class BackController extends CI_Controller{
 					redirect('back/kategori_produk1');
 				}
 			}else{
-				$this->session->set_flashdata('pesan', 'Data gagal dimasukkan!');
+				$this->session->set_flashdata('pesan', 'Data gagal diubah!');
 				redirect('back/kategori_produk1');
 			}
 		}else{
@@ -173,7 +179,7 @@ class BackController extends CI_Controller{
 					redirect('back/kategori_artikel1');
 				}
 			}else{
-				$this->session->set_flashdata('pesan', 'Data gagal dimasukkan!');
+				$this->session->set_flashdata('pesan', 'Data gagal diubah!');
 				redirect('back/kategori_artikel1');
 			}
 		}else{
@@ -200,13 +206,13 @@ class BackController extends CI_Controller{
 	public function input_pro(){
 		$config['upload_path']		= './assets/images/produk/';
 		$config['allowed_types']	= 'jpg|jpeg|png';
-		$config['file_name']		= 'picpro-'.date('ymd').'-'.substr(md5(rand()),0,10);
+		$config['file_name']		= 'imgpro-'.date('ymd').'-'.substr(md5(rand()),0,10);
 		$this->load->library('upload', $config);
 
-		if(@$_FILES['gambar_kategori_produk']['name'] != null) {
-			if($this->upload->do_upload('gambar_kategori_produk')) {
-				$post['gambar_kategori_produk'] = $this->upload->data('file_name');
-				$this->M_kategori_produk->input_kp($post);
+		if(@$_FILES['gambar_produk']['name'] != null) {
+			if($this->upload->do_upload('gambar_produk')) {
+				$post['gambar_produk'] = $this->upload->data('file_name');
+				$this->M_produk->input_pro($post);
 				if($this->db->affected_rows() > 0) {
 					$this->session->set_flashdata('pesan', 'Data berhasil dimasukkan!');
 					redirect('back/produk1');
@@ -216,8 +222,8 @@ class BackController extends CI_Controller{
 				redirect('back/produk1');
 			}
 		}else{
-			$post['gambar_kategori_produk'] = null;
-			$this->M_kategori_produk->input_kp($post);
+			$post['gambar_produk'] = null;
+			$this->M_produk->input_pro($post);
 			if($this->db->affected_rows() > 0) {
 				$this->session->set_flashdata('pesan', 'Data berhasil dimasukkan!');
 				redirect('back/produk1');
@@ -226,7 +232,8 @@ class BackController extends CI_Controller{
 	}
 
     public function edit_pro($pro){
-		$data['kategori_produk'] = $this->M_kategori_produk->getDataWhere($pro)->row();
+		$data['produk'] = $this->M_produk->getDataWhere($pro)->row();
+		$data['kategori_produk'] = $this->M_kategori_produk->tarikData();
         $this->load->view('back/template/header', $data);
         $this->load->view('back/produk3', $data);
         $this->load->view('back/template/footer', $data);
@@ -235,24 +242,24 @@ class BackController extends CI_Controller{
     public function ubah_pro(){
 		$config['upload_path']		= './assets/images/produk/';
 		$config['allowed_types']	= 'jpg|jpeg|png';
-		$config['file_name']		= 'picpro-'.date('ymd').'-'.substr(md5(rand()),0,10);
+		$config['file_name']		= 'imgpro-'.date('ymd').'-'.substr(md5(rand()),0,10);
 		$this->load->library('upload', $config);
 
-		if(@$_FILES['gambar_kategori_produk']['name'] != null) {
-			if($this->upload->do_upload('gambar_kategori_produk')) {
-				$post['gambar_kategori_produk'] = $this->upload->data('file_name');
-				$this->M_kategori_produk->ubah_kp($post);
+		if(@$_FILES['gambar_produk']['name'] != null) {
+			if($this->upload->do_upload('gambar_produk')) {
+				$post['gambar_produk'] = $this->upload->data('file_name');
+				$this->M_produk->ubah_pro($post);
 				if($this->db->affected_rows() > 0) {
-					$this->session->set_flashdata('pesan', 'Data berhasil dubah!');
+					$this->session->set_flashdata('pesan', 'Data berhasil diubah!');
 					redirect('back/produk1');
 				}
 			}else{
-				$this->session->set_flashdata('pesan', 'Data gagal dimasukkan!');
+				$this->session->set_flashdata('pesan', 'Data gagal diubah!');
 				redirect('back/produk1');
 			}
 		}else{
-			$post['gambar_kategori_produk'] = null;
-			$this->M_kategori_produk->ubah_kp($post);
+			$post['gambar_produk'] = null;
+			$this->M_produk->ubah_pro($post);
 			if($this->db->affected_rows() > 0) {
 				$this->session->set_flashdata('pesan', 'Data berhasil diubah!');
 				redirect('back/produk1');
@@ -261,7 +268,7 @@ class BackController extends CI_Controller{
 	}
 
     public function hapus_pro($pro){
-		$delete = $this->M_kategori_produk->hapus_kp($pro);
+		$delete = $this->M_produk->hapus_pro($pro);
 
 		if($delete){
 			$this->session->set_flashdata('pesan', 'Data berhasil dihapus!');
@@ -271,4 +278,80 @@ class BackController extends CI_Controller{
 		}
 	}
 
+	public function input_art(){
+		$config['upload_path']		= './assets/images/thumbnail/';
+		$config['allowed_types']	= 'jpg|jpeg|png';
+		$config['file_name']		= 'picthumb-'.date('ymd').'-'.substr(md5(rand()),0,10);
+		$this->load->library('upload', $config);
+
+		if(@$_FILES['thumbnail_artikel']['name'] != null) {
+			if($this->upload->do_upload('thumbnail_artikel')) {
+				$post['thumbnail_artikel'] = $this->upload->data('file_name');
+				$this->M_artikel->input_art($post);
+				if($this->db->affected_rows() > 0) {
+					$this->session->set_flashdata('pesan', 'Data berhasil dimasukkan!');
+					redirect('back/artikel1');
+				}
+			}else{
+				$this->session->set_flashdata('pesan', 'Data gagal dimasukkan!');
+				redirect('back/artikel1');
+			}
+		}else{
+			$post['thumbnail_artikel'] = null;
+			$this->M_artikel->input_art($post);
+			if($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('pesan', 'Data berhasil dimasukkan!');
+				redirect('back/artikel1');
+			}
+		}
+	}
+
+    public function edit_art($art){
+		$data['artikel'] = $this->M_artikel->getDataWhere($art)->row();
+		$data['kategori_artikel'] = $this->M_kategori_artikel->tarikData();
+        $this->load->view('back/template/header', $data);
+        $this->load->view('back/artikel3', $data);
+        $this->load->view('back/template/footer', $data);
+	}
+
+    public function ubah_art(){
+		$config['upload_path']		= './assets/images/thumbnail/';
+		$config['allowed_types']	= 'jpg|jpeg|png';
+		$config['file_name']		= 'picthumb-'.date('ymd').'-'.substr(md5(rand()),0,10);
+		$this->load->library('upload', $config);
+
+		if(@$_FILES['thumbnail_artikel']['name'] != null) {
+			if($this->upload->do_upload('thumbnail_artikel')) {
+				$post['thumbnail_artikel'] = $this->upload->data('file_name');
+				$this->M_artikel->ubah_art($post);
+				if($this->db->affected_rows() > 0) {
+					$this->session->set_flashdata('pesan', 'Data berhasil diubah!');
+					redirect('back/artikel1');
+				}
+			}else{
+				$this->session->set_flashdata('pesan', 'Data gagal diubah!');
+				redirect('back/artikel1');
+			}
+		}else{
+			$post['thumbnail_artikel'] = null;
+			$this->M_artikel->ubah_art($post);
+			if($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('pesan', 'Data berhasil diubah!');
+				redirect('back/artikel1');
+			}
+		}
+	}
+
+    public function hapus_art($art){
+		$delete = $this->M_artikel->hapus_art($art);
+
+		if($delete){
+			$this->session->set_flashdata('pesan', 'Data berhasil dihapus!');
+			redirect('back/artikel1');
+		}else{
+			echo "Gagal";
+		}
+	}
+
 }
+
