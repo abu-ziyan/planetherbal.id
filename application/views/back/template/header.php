@@ -137,39 +137,22 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="<?= base_url('back/ubah_header') ?>">Header</a>
+                                <a href="<?= base_url('back/headword1') ?>">Header & Keyword</a>
                             </li>
                             <li>
-                                <a href="<?= base_url('back/ubah_footer') ?>">Footer</a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url('back/ubah_keyword') ?>">Keyword</a>
+                                <a href="<?= base_url('back/footer1') ?>">Footer</a>
                             </li>
 							<li>
-                                <a href="<?= base_url('back/ubah_banner') ?>">Banner</a>
+                                <a href="<?= base_url('back/banner_halaman1') ?>">Banner</a>
                             </li>
                         </ul>
                     </li>
                     <li class="header">Bagian Modifikasi Website</li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
+					<li>
+                        <a href="<?= base_url('back/banner_beranda1') ?>">
                             <i class="material-icons">home</i>
-                            <span>Halaman Utama</span>
+                            <span>Beranda</span>
                         </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="<?= base_url('back/utama_section1') ?>">Section 1 - Banner</a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url('back/utama_section2') ?>">Section 2 - Keluhan</a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url('back/utama_section3') ?>">Section 3 - 6 Produk Terbaik</a>
-                            </li>
-                            <li>
-                                <a href="<?= base_url('back/utama_section4') ?>">Section 4 - Artikel & Tentang Planet Herbal</a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
                         <a href="<?= base_url('back/produk1') ?>">

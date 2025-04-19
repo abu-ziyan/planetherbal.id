@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2025 at 12:52 AM
+-- Generation Time: Apr 19, 2025 at 07:27 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -36,12 +36,16 @@ CREATE TABLE `artikel` (
   `tanggal_artikel` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `artikel`
+-- Table structure for table `banner_beranda`
 --
 
-INSERT INTO `artikel` (`kd_artikel`, `judul_artikel`, `kategori_artikel`, `thumbnail_artikel`, `isi_artikel`, `tanggal_artikel`) VALUES
-('art-250418-1aba61a9ff', 'Testing aja', 'Kategori Kedua', 'picthumb-250418-6b8fd38c84.jpg', '<p><strong>bismillah</strong></p>\r\n', '2025-04-18');
+CREATE TABLE `banner_beranda` (
+  `kd_banner_beranda` varchar(255) NOT NULL,
+  `gambar_banner_beranda` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -54,14 +58,6 @@ CREATE TABLE `kategori_artikel` (
   `nm_kategori_artikel` varchar(255) NOT NULL,
   `gambar_kategori_artikel` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `kategori_artikel`
---
-
-INSERT INTO `kategori_artikel` (`kd_kategori_artikel`, `nm_kategori_artikel`, `gambar_kategori_artikel`) VALUES
-('kdart-250418-4079056d09', 'Kategori Kedua', 'picart-250418-0577d70464.jpg'),
-('kdart-250418-91d5c54a21', 'Kategori Pertama', 'picart-250418-e58ac8b0b0.jpg');
 
 -- --------------------------------------------------------
 
@@ -80,7 +76,30 @@ CREATE TABLE `kategori_produk` (
 --
 
 INSERT INTO `kategori_produk` (`kd_kategori_produk`, `nm_kategori_produk`, `gambar_kategori_produk`) VALUES
-('kdpro-250418-adfac45291', 'Kategori Pertama', 'picpro-250418-ecd97f1bb0.jpg');
+('kdpro-250419-34ed3f0e1d', 'Kode Produk Pertama', 'picpro-250419-2504a8fdff.jpg'),
+('kdpro-250419-0f257e4705', 'Kode Produk Kedua', 'picpro-250419-54549270b8.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `keyword`
+--
+
+CREATE TABLE `keyword` (
+  `kd_keyword` varchar(255) NOT NULL,
+  `nm_keyword` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `logo`
+--
+
+CREATE TABLE `logo` (
+  `kd_logo` varchar(255) NOT NULL,
+  `gambar_logo` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -125,7 +144,7 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`kd_produk`, `nm_produk`, `kategori_produk`, `gambar_produk`, `harga_produk`, `deskripsi_produk`, `petunjuk_produk`, `tanggal_produk`, `link_tokped`, `link_shopee`) VALUES
-('pro-250418-21362639d9', 'safgsdg', 'Kategori Pertama', 'imgpro-250418-9cd19b1bbf.jpg', 'Rp 50.000,-', '<p>jasddf&#39;as;LDKgkalfmval&#39;vma&#39;s;&#39;sdklaskfjad;gjsld</p>\r\n', 'sjafngk;asmfkl;gk\'adfskg;\"LASs', '2025-04-18', 'kldsnmgm;kdaskfgk\'', 'sdlkmg;lfadm\';;a;\'gk\'df;');
+('pro-250419-491ecc3749', 'Panadol Herbal', 'Kode Produk Kedua', 'imgpro-250419-ad1bceec98.png', '100.000', '<p><em><strong>Emang ada panadol herbal? Sok tau. Kan cuma contoh doang wkwkwkwkk</strong></em></p>\r\n', 'Gausah diminum. Toh cuma contoh doang. Mana ada panadol Herbal wkwkwkwkwk', '2025-04-19', 'tokopedia.com', 'shopee.com');
 
 --
 -- Indexes for dumped tables

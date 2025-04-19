@@ -7,6 +7,8 @@ class BackController extends CI_Controller{
         $this->load->model('M_kategori_artikel');
 		$this->load->model('M_artikel');
 		$this->load->model('M_produk');
+		$this->load->model('M_banner_beranda');
+		$this->load->model('M_global');
     }
     
     public function masuk() {
@@ -47,6 +49,11 @@ class BackController extends CI_Controller{
         $data['kategori_artikel'] = $this->M_kategori_artikel->ambil()->result();
 		$data['artikel'] = $this->M_artikel->ambil()->result();
 		$data['produk'] = $this->M_produk->ambil()->result();
+		$data['banner_beranda'] = $this->M_banner_beranda->ambil()->result();
+		$data['logo'] = $this->M_global->ambil_lg()->result();
+		$data['keyword'] = $this->M_global->ambil_kw()->result();
+		//$data['mitra'] = $this->M_global->ambil_mtr()->result();
+		//$data['lokasi'] = $this->M_global->ambil_lks()->result();		
 		$data['kategori_artikel'] = $this->M_kategori_artikel->tarikData();
 		$data['kategori_produk'] = $this->M_kategori_produk->tarikData();
 		
@@ -348,6 +355,80 @@ class BackController extends CI_Controller{
 		if($delete){
 			$this->session->set_flashdata('pesan', 'Data berhasil dihapus!');
 			redirect('back/artikel1');
+		}else{
+			echo "Gagal";
+		}
+	}
+
+	public function input_bh(){
+		$config['upload_path']		= './assets/images/banner/';
+		$config['allowed_types']	= 'jpg|jpeg|png';
+		$config['file_name']		= 'imgbh-'.date('ymd').'-'.substr(md5(rand()),0,10);
+		$this->load->library('upload', $config);
+
+		if(@$_FILES['gambar_banner_beranda']['name'] != null) {
+			if($this->upload->do_upload('gambar_banner_beranda')) {
+				$post['gambar_banner_beranda'] = $this->upload->data('file_name');
+				$this->M_banner_beranda->input_bh($post);
+				if($this->db->affected_rows() > 0) {
+					$this->session->set_flashdata('pesan', 'Data berhasil dimasukkan!');
+					redirect('back/banner_beranda1');
+				}
+			}else{
+				$this->session->set_flashdata('pesan', 'Data gagal dimasukkan!');
+				redirect('back/banner_beranda1');
+			}
+		}else{
+			$post['gambar_banner_beranda'] = null;
+			$this->M_banner_beranda->input_bh($post);
+			if($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('pesan', 'Data berhasil dimasukkan!');
+				redirect('back/banner_beranda1');
+			}
+		}
+	}
+
+    public function edit_bh($bh){
+		$data['banner_beranda'] = $this->M_banner_beranda->getDataWhere($bh)->row();
+        $this->load->view('back/template/header', $data);
+        $this->load->view('back/banner_beranda3', $data);
+        $this->load->view('back/template/footer', $data);
+	}
+
+    public function ubah_bh(){
+		$config['upload_path']		= './assets/images/banner/';
+		$config['allowed_types']	= 'jpg|jpeg|png';
+		$config['file_name']		= 'imgbh-'.date('ymd').'-'.substr(md5(rand()),0,10);
+		$this->load->library('upload', $config);
+
+		if(@$_FILES['gambar_banner_beranda']['name'] != null) {
+			if($this->upload->do_upload('gambar_banner_beranda')) {
+				$post['gambar_banner_beranda'] = $this->upload->data('file_name');
+				$this->M_banner_beranda->ubah_bh($post);
+				if($this->db->affected_rows() > 0) {
+					$this->session->set_flashdata('pesan', 'Data berhasil diubah!');
+					redirect('back/banner_beranda1');
+				}
+			}else{
+				$this->session->set_flashdata('pesan', 'Data gagal diubah!');
+				redirect('back/banner_beranda1');
+			}
+		}else{
+			$post['gambar_banner_beranda'] = null;
+			$this->M_banner_beranda->ubah_bh($post);
+			if($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('pesan', 'Data berhasil diubah!');
+				redirect('back/banner_beranda1');
+			}
+		}
+	}
+
+    public function hapus_bh($bh){
+		$delete = $this->M_banner_beranda->hapus_bh($bh);
+
+		if($delete){
+			$this->session->set_flashdata('pesan', 'Data berhasil dihapus!');
+			redirect('back/banner_beranda1');
 		}else{
 			echo "Gagal";
 		}
