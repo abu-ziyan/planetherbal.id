@@ -434,5 +434,128 @@ class BackController extends CI_Controller{
 		}
 	}
 
+	public function input_lg(){
+		$config['upload_path']		= './assets/images/';
+		$config['allowed_types']	= 'jpg|jpeg|png';
+		$config['file_name']		= 'logo-'.date('ymd').'-'.substr(md5(rand()),0,10);
+		$this->load->library('upload', $config);
+
+		if(@$_FILES['gambar_logo']['name'] != null) {
+			if($this->upload->do_upload('gambar_logo')) {
+				$post['gambar_logo'] = $this->upload->data('file_name');
+				$this->M_global->input_lg($post);
+				if($this->db->affected_rows() > 0) {
+					$this->session->set_flashdata('pesan', 'Data berhasil dimasukkan!');
+					redirect('back/headword1');
+				}
+			}else{
+				$this->session->set_flashdata('pesan', 'Data gagal dimasukkan!');
+				redirect('back/headword1');
+			}
+		}else{
+			$post['gambar_logo'] = null;
+			$this->M_global->input_lg($post);
+			if($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('pesan', 'Data berhasil dimasukkan!');
+				redirect('back/headword1');
+			}
+		}
+	}
+
+    public function edit_lg($lg){
+		$data['logo'] = $this->M_global->getDataWhere($lg)->row();
+        $this->load->view('back/template/header', $data);
+        $this->load->view('back/headword3', $data);
+        $this->load->view('back/template/footer', $data);
+	}
+
+    public function ubah_lg(){
+		$config['upload_path']		= './assets/images/';
+		$config['allowed_types']	= 'jpg|jpeg|png';
+		$config['file_name']		= 'logo-'.date('ymd').'-'.substr(md5(rand()),0,10);
+		$this->load->library('upload', $config);
+
+		if(@$_FILES['gambar_logo']['name'] != null) {
+			if($this->upload->do_upload('gambar_logo')) {
+				$post['gambar_logo'] = $this->upload->data('file_name');
+				$this->M_global->ubah_lg($post);
+				if($this->db->affected_rows() > 0) {
+					$this->session->set_flashdata('pesan', 'Data berhasil diubah!');
+					redirect('back/headword1');
+				}
+			}else{
+				$this->session->set_flashdata('pesan', 'Data gagal diubah!');
+				redirect('back/headword1');
+			}
+		}else{
+			$post['gambar_logo'] = null;
+			$this->M_global->ubah_lg($post);
+			if($this->db->affected_rows() > 0) {
+				$this->session->set_flashdata('pesan', 'Data berhasil diubah!');
+				redirect('back/headword1');
+			}
+		}
+	}
+
+    public function hapus_lg($lg){
+		$delete = $this->M_global->hapus_lg($lg);
+
+		if($delete){
+			$this->session->set_flashdata('pesan', 'Data berhasil dihapus!');
+			redirect('back/headword1');
+		}else{
+			echo "Gagal";
+		}
+	}
+
+	public function input_kw(){
+		$kode_unik = 'key-'.date('ymd').'-'.substr(md5(rand()),0,10);
+		$data = array(
+			'kd_keyword' => $kode_unik,
+			'nm_keyword' => $this->input->post('nm_keyword')
+		);
+
+		$input = $this->M_global->input_kw($data);
+
+		if($input){
+            $this->session->set_flashdata('pesan', 'Data berhasil dimasukkan!');
+			redirect('back/headword1');
+		}else{
+			echo "Gagal";
+		}
+	}
+
+	public function edit_kw($kw){
+		$data['keyword'] = $this->M_global->getDataWhere2($kw)->row();
+        $this->load->view('back/template/header', $data);
+        $this->load->view('back/headword5', $data);
+        $this->load->view('back/template/footer', $data);
+	}
+
+	public function ubah_kw(){
+		$data = array(
+			'kd_keyword' => $this->input->post('kd_keyword'),
+			'nm_keyword' => $this->input->post('nm_keyword')
+		);
+
+		$kw= $this->input->post('kd_keyword');
+		$update = $this->M_global->ubah_kw($kw, $data);
+
+		if($update){
+			$this->session->set_flashdata('pesan', 'Data berhasil diubah!');
+			redirect('back/headword1');
+		}else{
+			echo "Gagal";
+		}
+	}
+    
+    public function hapus_kw($kw){
+		$this->db->where('kd_keyword',$kw);
+		$this->db->delete('keyword');
+
+		redirect('back/headword1');
+	}
+
+
 }
 

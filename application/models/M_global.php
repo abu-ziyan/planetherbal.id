@@ -40,17 +40,25 @@ class M_global extends CI_Model{
 	}
 
 	public function ambil_kw(){
-        return $this->db->get('logo');
+        return $this->db->get('keyword');
     }
 
-    public function input_kw(){
-		$kode_unik = 'kdbh-'.date('ymd').'-'.substr(md5(rand()),0,10);
-
-        $params = array(
-			'kd_banner_beranda' => $kode_unik,
-			'gambar_banner_beranda' => $this->upload->data('file_name')
-		);
-
-		$this->db->insert('banner_beranda', $params);
+    public function input_kw($data){
+        return $this->db->insert('keyword', $data);
     }
+
+	public function getDataWhere2($kw){
+        $this->db->where('kd_keyword', $kw);
+        return $this->db->get('keyword');
+    }
+
+    public function ubah_kw($kw, $data){
+        $this->db->where('kd_keyword', $kw);
+        return $this->db->update('keyword', $data);
+    }
+
+	public function hapus_kw($kw){
+		$this->db->where('kd_keyword',$kw);
+		return $this->db->delete('keyword');
+	}
 }

@@ -1,5 +1,12 @@
 <section class="content">
         <div class="container-fluid">
+        <?= form_open('BackController/input_pro'); ?>
+            <?php if($this->session->flashdata('pesan') !== null): ?>
+                <div class="alert bg-teal alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <?= $this->session->flashdata('pesan') ?>
+                </div>
+            <?php endif;?>
                      <!-- Basic Examples -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -71,7 +78,7 @@
 					<h4 class="modal-title" id="smallModalLabel">Penghapusan Data</h4>
 				</div>
 				<div class="modal-body">
-					Yakin data <?= $katpro->nm_kategori_proikel ?> akan dihapus?
+					Yakin data <?= $pro->nm_produk ?> akan dihapus?
 				</div>
 				<div class="modal-footer">                            
 					<button type="button" class="btn bg-teal btn-sm waves-effect" data-dismiss="modal">
