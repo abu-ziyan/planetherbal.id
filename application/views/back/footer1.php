@@ -14,11 +14,11 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Logo
+                                Kemitraan
                             </h2><br />
-                            <a href="<?= base_url('back/headword2') ?>" type="button" class="btn bg-blue btn-sm waves-effect">
+                            <a href="<?= base_url('back/footer2') ?>" type="button" class="btn bg-blue btn-sm waves-effect">
                                 <i class="material-icons">add</i>
-                                <span>Tambah Logo</span>
+                                <span>Tambah Kemitraan</span>
                             </a>
                         </div>
                         <div class="body">
@@ -27,14 +27,14 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Logo</th>
+                                            <th>Isi</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                     <tr>
                                             <th>No</th>
-                                            <th>Logo</th>
+                                            <th>Isi</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </tfoot>
@@ -48,13 +48,13 @@
                                                     <i class="material-icons">edit</i>
                                                     <span>Ubah</span>
                                                 </a>
-                                                <button type="button" class="btn bg-red btn-sm waves-effect" data-toggle="modal" data-target="#hapus-logo">
+                                                <button type="button" class="btn bg-red btn-sm waves-effect" data-toggle="modal" data-target="#hapus-mitra">
 													<i class="material-icons">delete</i>
 													<span>Hapus</span>
 												</button>
                                             </td>
                                         </tr>
-                                    <?php endforeach; ?>                                      
+                                    <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -71,11 +71,11 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Keyword
+                                Lokasi
                             </h2><br />
-                            <a href="<?= base_url('back/headword4') ?>" type="button" class="btn bg-blue btn-sm waves-effect">
+                            <a href="<?= base_url('back/footer4') ?>" type="button" class="btn bg-blue btn-sm waves-effect">
                                 <i class="material-icons">add</i>
-                                <span>Tambah Keyword</span>
+                                <span>Tambah Lokasi</span>
                             </a>
                         </div>
                         <div class="body">
@@ -84,14 +84,14 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Keyword</th>
+                                            <th>Isi</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                     <tr>
                                             <th>No</th>
-                                            <th>Keyword</th>
+                                            <th>Isi</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </tfoot>
@@ -105,13 +105,13 @@
                                                     <i class="material-icons">edit</i>
                                                     <span>Ubah</span>
                                                 </a>
-                                                <button type="button" class="btn bg-red btn-sm waves-effect" data-toggle="modal" data-target="#hapus-kw">
+                                                <button type="button" class="btn bg-red btn-sm waves-effect" data-toggle="modal" data-target="#hapus-lokasi">
 													<i class="material-icons">delete</i>
 													<span>Hapus</span>
 												</button>
                                             </td>
                                         </tr>
-                                    <?php endforeach; ?>                                     
+                                    <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -123,7 +123,7 @@
         </div>
     </section>
 
-	<div class="modal fade" id="hapus-logo" tabindex="-1" role="dialog">
+	<div class="modal fade" id="hapus-mitra" tabindex="-1" role="dialog">
 		<div class="modal-dialog modal-sm" role="document">
 			<div class="modal-content">
 				<div class="modal-header bg-red">
@@ -132,7 +132,7 @@
 				<div class="modal-body">
 					Yakin data <?= $lg->gambar_logo ?> akan dihapus?
 				</div>
-				<div class="modal-footer">                            
+				<div class="modal-footer">
 					<button type="button" class="btn bg-teal btn-sm waves-effect" data-dismiss="modal">
 						<i class="material-icons">clear</i>
 						<span>Tidak</span>
@@ -145,7 +145,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="modal fade" id="hapus-kw" tabindex="-1" role="dialog">
+	<div class="modal fade" id="hapus-lokasi" tabindex="-1" role="dialog">
 		<div class="modal-dialog modal-sm" role="document">
 			<div class="modal-content">
 				<div class="modal-header bg-red">
@@ -154,7 +154,7 @@
 				<div class="modal-body">
 					Yakin data <?= $key->kd_keyword?> akan dihapus?
 				</div>
-				<div class="modal-footer">                            
+				<div class="modal-footer">
 					<button type="button" class="btn bg-teal btn-sm waves-effect" data-dismiss="modal">
 						<i class="material-icons">clear</i>
 						<span>Tidak</span>

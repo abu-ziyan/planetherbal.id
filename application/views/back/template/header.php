@@ -129,7 +129,7 @@
                                 <a href="<?= base_url('back/kategori_artikel1') ?>">Kategori Artikel</a>
                             </li>
                         </ul>
-                    </li>                   
+                    </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">build</i>
@@ -167,7 +167,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<?= base_url('back/tentang_kami') ?>">
+                        <a href="<?= base_url('back/tentang_kami1') ?>">
                             <i class="material-icons">info_outline</i>
                             <span>Tentang Kami</span>
                         </a>
