@@ -1,4 +1,11 @@
 <section class="content">
+		<?= form_open('BackController/input_bh'); ?>
+            <?php if($this->session->flashdata('pesan') !== null): ?>
+                <div class="alert bg-teal alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <?= $this->session->flashdata('pesan') ?>
+                </div>
+            <?php endif;?>
         <div class="container-fluid">
                      <!-- Basic Examples -->
             <div class="row clearfix">
